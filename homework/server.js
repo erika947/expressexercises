@@ -26,6 +26,12 @@ app.get ('/greeting/:name',(req,res) => {
 })
 
 
+  app.get('/tip/:total/:percentage', (req, res) => {
+    let tip = req.params.total * (req.params.percentage/100)
+    res.render('template', { title: 'TIP', message: 'your subtotal is $' + req.params.total + ' tip will be $' + tip})
+  })
+
+
 app.listen(port,() => {
     console.log('i am listening on port ', port)
 })
